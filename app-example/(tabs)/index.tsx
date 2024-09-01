@@ -1,4 +1,5 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, Text, StyleSheet, View, Platform } from 'react-native';
+import React from 'react';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -19,6 +20,11 @@ export default function HomeScreen() {
         <ThemedText type="title">Welcome!</ThemedText>
         <HelloWave />
       </ThemedView>
+
+      <View className="flex-1 items-center justify-center bg-white">
+        <Text>Open up App.js to start working on your app!</Text>
+      </View>
+
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Step 1: Try it</ThemedText>
         <ThemedText>
