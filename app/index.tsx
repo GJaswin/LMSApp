@@ -1,17 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { Text, View } from 'react-native';
-import './global.css';
+import { View, Text } from 'react-native'
+import React, { useRef } from 'react'
+import Animated, { FadeInDown, withDecay } from 'react-native-reanimated';
+import Button from '@/components/Button';
+import { router } from 'expo-router';
+import LottieView from 'lottie-react-native';
 
+export default function Welcome() {
+const animation = useRef<LottieView>(null);
 
-export default function App() {
   return (
-  <View className="flex-1 items-center justify-center bg-white m-4 p-4">
-      <Text>Open up App.js to start working on your app!</Text>
-      <Text>Hello</Text>
-      <StatusBar style="auto" />
+    <View className="bg-white gap-4 flex-1 w-full justify-center items-center">
+
+      <Animated.View className="w-full"
+        entering={FadeInDown.duration(300).springify()}
+      >
+
+        <LottieView
+        ref={animation}
+        source={require("../assets/animations/learner.json")}
+        autoPlay
+        loop
+        style={{width: "100%", height:400}}
+        
+        />
+        
+      </Animated.View>
+
+      <Animated.View className="w-full"
+        entering={FadeInDown.duration(300).delay(200).springify()}
+      >
+
+        <Text className="text-4xl text-center leading-[3.5rem]"
+          style={{ fontFamily: "PoppinsExtraBold" }}
+        > Discover and improve your skills</Text>
+      </Animated.View>
+
+      <Animated.View className="w-full"
+        entering={FadeInDown.duration(300).delay(400).springify()}
+      >
+
+        <Text className="text-lg text-center leading-[2rem]"
+          style={{ fontFamily: "PoppinsSemiBold" }}
+        > Learn from the best courses & tutorials. </Text>
+      </Animated.View>
+
+      {/*Button*/}
+
+      <Animated.View className="w-full items-center"
+        entering={FadeInDown.duration(300).delay(400).springify()}
+      >
+
+        <Button title='Get Started' action={() => router.push("/(tabs)")} />
+
+      </Animated.View>
+
+
     </View>
-  );
+  )
 }
-
-
