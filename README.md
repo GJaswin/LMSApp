@@ -25,4 +25,8 @@ In the output, you'll find options to open the app in a
 
 # Screenshots
 
-![Opening Screen](/screenshots/1.png)
+
+<div style="display: flex; justify-content: center;">
+<img src="/screenshots/1.png" alt="image" width="300" height="auto">
+<img src="/screenshots/2.png" alt="image" width="300" height="auto">
+</div>
