@@ -6,13 +6,13 @@ import { Course } from '@/types/types';
 import { useWishlistStore } from '@/store/wishlistStore';
 import { router } from 'expo-router';
 
-interface CourseItemProps {
+interface CourseItemTertiaryProps {
     course: Course;
     customStyle?: string;
     index: number;
 }
 
-export default function CourseItem({ course, customStyle, index }: CourseItemProps) {
+export default function CourseItemTertiary({ course, customStyle, index }: CourseItemTertiaryProps) {
     const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlistStore();
     const isWishlisted = isInWishlist(course.id);
 
@@ -26,36 +26,39 @@ export default function CourseItem({ course, customStyle, index }: CourseItemPro
 
     return (
         <Pressable className={"p-4" + (customStyle ? customStyle : "")}
-        onPress={() => router.push(
-            {
-                pathname: "/coursedetail",
-                params: { courseId: course.id }
-            }
-        )}
+            onPress={() => router.push(
+                {
+                    pathname: "/coursedetail",
+                    params: { courseId: course.id }
+                }
+            )}
         >
-            <Animated.View className="w-80 border-2 border-gray-300 overflow-hidden rounded-2xl"
+            <Animated.View className="gap-2 p-2 flex-row bg-white/90 w-full border border-gray-300 overflow-hidden rounded-2xl"
                 entering={FadeInDown.duration(100).delay(index * 300).springify()}
             >
-                <Image
-                    source={
-                        {
-                            uri: course.image_480x270,
+                <View className='w-1/4 h-20 rounded-full'>
+                    <Image
+                        source={
+                            {
+                                uri: course.image_480x270,
+                            }
                         }
-                    }
-                    className='w-full h-40'
-                />
+                        className='w-full h-20 rounded-2xl'
+                    />
+                </View>
 
-                <View className='px-4 p-2'>
-                    <Text className='text-lg min-h-16'
+
+                <View className='px-4 w-3/4'>
+                    <Text className='text-base min-h-14'
                         style={{
                             fontFamily: "PoppinsBold",
                         }}
                     >{course.title}</Text>
 
-                    <View className='flex-row items-center pt-2 pb-4 justify-between'>
+                    <View className='flex-row items-center justify-between'>
                         <Text>{course.is_paid ? `${course.price}` : "Free"}</Text>
                         <Pressable onPress={toggleWishlist}>
-                            <Ionicons color={ isWishlisted ? "red" : "gray" } name={ isWishlisted ? "heart" : "heart-outline" } size={24} />
+                            <Ionicons color={isWishlisted ? "red" : "gray"} name={isWishlisted ? "heart" : "heart-outline"} size={24} />
                         </Pressable>
                     </View>
 

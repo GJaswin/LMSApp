@@ -27,3 +27,31 @@ export interface Course {
     num_reviews: number;
 
 }
+
+export interface CurriculumItem {
+    _class: string;
+    id: number;
+    title: string;
+    description?: string;
+    content_summary?: string;
+    is_free?: boolean;
+    sort_order?: number;
+}
+
+export interface User {
+    _class: string;
+    title: string;
+    name: string;
+    display_name: string;
+}
+
+export interface Review {
+    _class: string;
+    id: number;
+    content: string;
+    rating: number;
+    created: string;
+    modified?: boolean;
+    user_modified: string;
+    user?: User;
+}

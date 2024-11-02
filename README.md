@@ -32,6 +32,17 @@ In the output, you'll find options to open the app in a
 
 
 <div style="display: flex; justify-content: center;">
-<img src="/screenshots/1.png" alt="image" width="250" height="auto">
-<img src="/screenshots/2.png" alt="image" width="250" height="auto">
+<style> 
+img {
+margin: 10px;
+width: 12rem;
+height: auto;
+
+}
+</style>
+<img src="/screenshots/1.png" alt="image">
+<img src="/screenshots/2.png" alt="image">
+<img src="/screenshots/3.png" alt="image">
+<img src="/screenshots/4.png" alt="image">
+<img src="/screenshots/5.png" alt="image">
 </div>

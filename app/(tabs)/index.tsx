@@ -51,13 +51,33 @@ const fetchCourses = async (searchTerm: string): Promise<SearchResponse> => {
   return response.data;
 }
 
+const fetchRecommendedCourses = async (): Promise<SearchResponse> => {
+  const response = await axios.get('https://www.udemy.com/api-2.0/courses/', {
+    auth: {
+      username: username,
+      password: password,
+    },
+
+  });
+  return response.data;
+}
+
+
+
 
 export default function HomeScreen() {
   const [selectedCategory, setSelectedCategory] = useState("business");
 
-  const { data, error, isLoading, refetch } = useQuery({
+  const { data, error, isLoading } = useQuery({
     queryKey: ["searchCourses", selectedCategory],
     queryFn: () => fetchCourses(selectedCategory),
+    enabled: true,
+
+  });
+
+  const { data: recommendedcourses, error: recommendedcourseserror, isLoading: recommendedcoursesloading } = useQuery({
+    queryKey: ["recommendedcourses"],
+    queryFn: () => fetchRecommendedCourses(),
     enabled: true,
 
   });
@@ -204,6 +224,57 @@ export default function HomeScreen() {
             </View>
           )
         }
+
+        {/* Recommended Courses */}
+        <View className='pt-6'>
+          <View className='flex-row justify-between px-6 py-4 items-center'>
+            <Text className='text-xl'
+              style={{ fontFamily: "PoppinsBold" }}
+            >
+             Recommended Courses 
+            </Text>
+
+            <Text className='text-blue-700'
+              style={{ fontFamily: "PoppinsSemiBold" }}
+            >
+              See More
+            </Text>
+
+          </View>
+
+          {
+            recommendedcoursesloading ? (
+              <View className='flex-1 justify-center items-center pt-8'>
+                <ActivityIndicator size="large" color="#2563eb" />
+              </View>
+            ) : recommendedcourseserror ? (
+              <Text>Error: {(recommendedcourseserror as Error).message}</Text>
+            ) : recommendedcourses?.results ? (
+              <GestureHandlerRootView>
+                <FlatList
+                  horizontal={true}
+                  data={recommendedcourses?.results}
+
+                  renderItem={
+                    ({ item }) => (
+                      <CourseItem course={item} customStyle='w-[22rem] px-3' />
+
+                    )
+                  }
+
+                  keyExtractor={(item) => item.id.toString()}
+                  showsHorizontalScrollIndicator={false}
+                />
+
+              </GestureHandlerRootView>
+            ) : (
+              <View>
+                <Text>No Results. Try searching for a different course.</Text>
+              </View>
+            )
+          }
+
+        </View>
 
       </ScrollView>
     </View>

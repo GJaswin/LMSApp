@@ -9,7 +9,7 @@ export default function Welcome() {
 const animation = useRef<LottieView>(null);
 
   return (
-    <View className="bg-white gap-4 flex-1 w-full justify-center items-center">
+    <View className="bg-white flex-1 w-full justify-center items-center">
 
       <Animated.View className="w-full"
         entering={FadeInDown.duration(300).springify()}
@@ -26,7 +26,7 @@ const animation = useRef<LottieView>(null);
         
       </Animated.View>
 
-      <Animated.View className="w-full"
+      <Animated.View className="w-full mt-4"
         entering={FadeInDown.duration(300).delay(200).springify()}
       >
 
@@ -35,18 +35,18 @@ const animation = useRef<LottieView>(null);
         > Discover and improve your skills</Text>
       </Animated.View>
 
-      <Animated.View className="w-full"
+      <Animated.View className="w-full mt-4"
         entering={FadeInDown.duration(300).delay(400).springify()}
       >
 
         <Text className="text-lg text-center leading-[2rem]"
           style={{ fontFamily: "PoppinsSemiBold" }}
-        > Learn from the best courses & tutorials. </Text>
+        > Learn from the best courses & tutorials </Text>
       </Animated.View>
 
       {/*Button*/}
 
-      <Animated.View className="w-full items-center"
+      <Animated.View className="w-full items-center mt-4"
         entering={FadeInDown.duration(300).delay(400).springify()}
       >
 
