@@ -1,0 +1,3 @@
+// Rename this file to apikeys.ts when building your own project
+export const username = "[username]"
+export const password = "[pass]"
