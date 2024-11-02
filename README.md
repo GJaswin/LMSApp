@@ -9,11 +9,12 @@ This is an [Expo](https://expo.dev) project created with [`create-expo-app`](htt
    git clone https://github.com/GJaswin/LMSApp
    ```
 
-3. Install dependencies
+2. Install dependencies
 
    ```bash
    npm install
    ```
+3. You will need a Udemy API key to fetch your own data. Follow the instruction [here](https://www.udemy.com/developers/affiliate/) to obtain your own API key.  
 
 4. Start the app
 
@@ -31,18 +32,11 @@ In the output, you'll find options to open the app in a
 # Screenshots
 
 
-<div style="display: flex; justify-content: center;">
-<style> 
-img {
-margin: 10px;
-width: 12rem;
-height: auto;
+<div style="text-align: center">
 
-}
-</style>
-<img src="/screenshots/1.png" alt="image">
-<img src="/screenshots/2.png" alt="image">
-<img src="/screenshots/3.png" alt="image">
-<img src="/screenshots/4.png" alt="image">
-<img src="/screenshots/5.png" alt="image">
+<img src="/screenshots/1.png" width="25%" alt="image">
+<img src="/screenshots/2.png" width="25%" alt="image">
+<img src="/screenshots/3.png" width="25%" alt="image">
+<img src="/screenshots/4.png" width="25%" alt="image">
+<img src="/screenshots/5.png" width="25%" alt="image">
 </div>
