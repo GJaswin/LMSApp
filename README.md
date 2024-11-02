@@ -1,6 +1,6 @@
 # Learning Management System ![Static Badge](https://img.shields.io/badge/React_Native-Android-brightgreen?logo=react) ![Static Badge](https://img.shields.io/badge/Personal_Project-demo-red) ![GitHub commit activity](https://img.shields.io/github/commit-activity/t/GJaswin/LMSApp) ![GitHub last commit](https://img.shields.io/github/last-commit/GJaswin/LMSApp) ![GitHub repo size](https://img.shields.io/github/repo-size/gjaswin/LMSApp) 
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app). This was a part of me learning React Native for Android App Development.
 
 ## Get started
 
